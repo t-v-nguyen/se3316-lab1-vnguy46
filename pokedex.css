@@ -1,0 +1,46 @@
+body {
+    background: #3d3d3d;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 0;
+  }
+  .header{
+      width: 100%;
+  }
+  .header h1 {
+    background-color: #CC0000;
+    text-align: center;
+    color: #f4dc26;
+    font-size: 4em;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #3D7DCA;
+    margin-top: 0;
+  }
+  .pokedex ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    flex-basis: 80%;
+  }
+  .pokedex ul li {
+    flex-basis: 20%;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .pokedex ul li .index-number{
+      margin: 0;
+      color: white;
+  }
+  .pokedex ul li span {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+  }
+  .pokedex ul li img {
+    margin: 5px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
