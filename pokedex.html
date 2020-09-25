@@ -8,9 +8,25 @@
     <link rel="stylesheet" href="pokedex.css">
   </head>
   <body>
+
     <div class="header">
       <h1>Pok&eacute;dex</h1>
+      <div class="search-container">
+        <div class="name">
+          <form>
+            <input type="text" name="nameInput" placeholder="Search by Name" value="">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="index">
+          <form>
+            <input type="text" name="indexInput" placeholder="Search by Index" value="">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
+
     <div class="pokedex">
       <ul>
         <li>
@@ -134,13 +150,15 @@
           <span class="description">Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.</span>
         </li>
       </ul>
-  </div>
-  <div class="footer">
-    <h3>References</h3>
-    <p>Pokemon data set from <a href="https://www.kaggle.com/kvpratama/pokemon-images-dataset" target="_blank">https://www.kaggle.com/kvpratama/pokemon-images-dataset</a></p>
-    <p>Pokemon excel from <a href="https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/" target="_blank">https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/</a></p>
-    <p>Pokemon description from <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number" target="_blank">https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number</a></P>
-  </div>
+    </div>
+
+    <div class="footer">
+      <h3>References</h3>
+      <p>Pokemon data set from <a href="https://www.kaggle.com/kvpratama/pokemon-images-dataset" target="_blank">https://www.kaggle.com/kvpratama/pokemon-images-dataset</a></p>
+      <p>Pokemon excel from <a href="https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/" target="_blank">https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/</a></p>
+      <p>Pokemon description from <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number" target="_blank">https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number</a></P>
+    </div>
+
   </body>
   
 </html>
