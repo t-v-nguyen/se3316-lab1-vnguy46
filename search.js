@@ -1,142 +1,161 @@
 let pokemon = [
     {
-        id: 1,
+        id: "#001",
         pokemon: "Bulbasaur",
         description: "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
-        type:"grass poison"
+        type:"Grass Poison"
     },
     {
-        id: 2,
+        id: "#002",
         pokemon: "Ivysaur",
         description: "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.",
-        type: "grass poison"
+        type: "Grass Poison"
     },
     {
-        id: 3,
+        id: "#003",
         pokemon: "Venusaur",
         description: "Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
-        type: "grass poison"
+        type: "Grass Poison"
     },
     {
-        id: 4,
+        id: "#004",
         pokemon: "Charmander",
         description: "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.",
-        type: "fire"
+        type: "Fire"
     },
     {
-        id: 5,
+        id: "#005",
         pokemon: "Charmeleon",
         description: "It has a barb,aric nature. In battle, it whips its fiery tail around and slashes away with sharp claws.",
-        type: "fire"
+        type: "Fire"
     },
     {
-        id: 6,
+        id: "#006",
         pokemon: "Charizard",
         description: "It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.",
-        type: "fire flying"
+        type: "Fire Flying"
     },
     {
-        id: 7,
+        id: "#007",
         pokemon: "Squirtle",
         description: "When it retracts its long neck into its shell, it squirts out water with vigorous force.",
-        type: "water"
+        type: "Water"
     },
     {
-        id: 8,
+        id: "#008",
         pokemon: "Wartortle",
         description: "It is recognized as a symbol of longevity. If its shell has algae on it, that Wartortle is very old.",
-        type: "water"
+        type: "Water"
     },
     {
-        id: 9,
+        id: "#009",
         pokemon: "Blastoise",
         description: "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.",
-        type: "water"
+        type: "Water"
     },
     {
-        id: 10,
+        id: "#010",
         pokemon: "Caterpie",
         description: "For protection, it releases a horrible stench from the antenna on its head to drive away enemies.",
-        type: "bug"
+        type: "Bug"
     },
     {
-        id: 11,
+        id: "#011",
         pokemon: "Metapod",
         description: "It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack.",
-        type: "bug"
+        type: "Bug"
     },
     {
-        id: 12,
+        id: "#012",
         pokemon: "Butterfree",
         description: "In battle, it flaps its wings at great speed to release highly toxic dust into the air.",
-        type: "bug flying"
+        type: "Bug Flying"
     },
     {
-        id: 13,
+        id: "#013",
         pokemon: "Weedle",
         description: "Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves.",
-        type: "bug poison"
+        type: "Bug Poison"
     },
     {
-        id: 14,
+        id: "#014",
         pokemon: "Kakuna",
         description: "Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.",
-        type: "bug poison"
+        type: "Bug Poison"
     },
     {
-        id: 15,
+        id: "#015",
         pokemon: "Beedrill",
         description: "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.",
-        type: "bug poison"
+        type: "Bug Poison"
     },
     {
-        id: 16,
+        id: "#016",
         pokemon: "Pidgey",
         description: "Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.",
-        type: "normal flying"
+        type: "Normal Flying"
     },
     {
-        id: 17,
+        id: "#017",
         pokemon: "Pidgeotto",
         description: "This Pokémon is full of vitality. It constantly flies around its large territory in search of prey.",
-        type: "normal flying"
+        type: "Normal Flying"
     },
     {
-        id: 18,
+        id: "#018",
         pokemon: "Pidgeot",
         description: "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.",
-        type: "normal flying"
+        type: "Normal Flying"
     },
     {
-        id: 19,
+        id: "#019",
         pokemon: "Rattata",
         description: "Will chew on anything with its fangs. If you see one, you can be certain that 40 more live in the area.",
-        type: "normal"
+        type: "Normal"
     },
     {
-        id: 20,
+        id: "#020",
         pokemon: "Raticate",
         description: "Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.",
-        type: "normal"
+        type: "Normal"
     }
 ]
+function printMatches(matches){
+    let output = "";
+    for(i=0;i<matches.length;i++){
+        output += matches[i].id +" "+ matches[i].pokemon +" "+ matches[i].description +" "+ matches[i].type + "\n" 
+    }
+    alert(output);
+}
 
 function searchName(form){
     let matches = [];
-    var letters = /^[A-Za-z] +%/;
-    if(form.nameInput.value.match(letters) && form.nameInput.value.length <= 20){
-
+    if(form.nameInput.value.match(/^[a-zA-z]+$/) && form.nameInput.value.length <= 20 && form.nameInput.value.length > 0){
+        for(i=0;i<pokemon.length;i++){
+            if(pokemon[i].pokemon.toLowerCase().includes(form.nameInput.value.toLowerCase())){
+                matches.push(pokemon[i]);
+                if(matches.length >= 5) break;
+            }
+        }
+        printMatches(matches);
     }
     else{
-        alert("Please input less than 20 alphabet characters")
+        alert("Please input 1-20 alphabet characters")
     }
 }
 function searchIndex(form){
     let matches = []
     if(isNaN(form.indexInput.value) || form.indexInput.value > 20 || form.indexInput.value < 1){
-        alert("Please input NUMBERS between 1-20");
+        alert("Please input a NUMBER between 1-20");
     }
     else{
-
+        for(i=0;i<pokemon.length;i++){
+            if(pokemon[i].id.includes(form.indexInput.value)){
+                matches.push(pokemon[i]);
+                if(matches.length >= 5) break;
+            }
+        }
+        printMatches(matches);
     }
 }
+
