@@ -6,6 +6,7 @@
     <meta name="description" content="Displays pokemon from index number 1 to 20">
     <meta name="author" content="Viet Nguyen">
     <link rel="stylesheet" href="pokedex.css">
+    <script type="text/javascript" src="search.js"></script>
   </head>
   <body>
 
@@ -15,13 +16,13 @@
         <div class="name">
           <form>
             <input type="text" name="nameInput" placeholder="Search by Name" value="">
-            <button type="submit">Submit</button>
+            <button type="submit" onClick="searchName(this.form)">Submit</button>
           </form>
         </div>
         <div class="index">
           <form>
             <input type="text" name="indexInput" placeholder="Search by Index" value="">
-            <button type="submit">Submit</button>
+            <button type="submit" onClick="searchIndex(this.form)">Submit</button>
           </form>
         </div>
       </div>
