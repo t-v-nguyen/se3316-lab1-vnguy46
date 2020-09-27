@@ -19,6 +19,12 @@ let pokemon = [
         type: "Grass Poison Type"
     },
     {
+        id: "#003",
+        pokemon: "Mega Venusaur",
+        description: "Use Venusaurite to mega evolve Venuasaur.",
+        type: "Grass Poison Type"
+    },
+    {
         id: "#004",
         pokemon: "Charmander",
         description: "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.",
@@ -37,6 +43,18 @@ let pokemon = [
         type: "Fire Flying Type"
     },
     {
+        id: "#006",
+        pokemon: "Mega Charizard X",
+        description: "Use Charizardite X to mega evolve Charizard.",
+        type: "Fire Flying Type"
+    },
+    {
+        id: "#006",
+        pokemon: "Mega Charizard Y",
+        description: "Use Charizardite Y to mega evolve Charizard.",
+        type: "Fire Flying Type"
+    },
+    {
         id: "#007",
         pokemon: "Squirtle",
         description: "When it retracts its long neck into its shell, it squirts out water with vigorous force.",
@@ -52,6 +70,12 @@ let pokemon = [
         id: "#009",
         pokemon: "Blastoise",
         description: "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.",
+        type: "Water Type"
+    },
+    {
+        id: "#009",
+        pokemon: "Mega Blastoise",
+        description: "Use Blastoisinite to mega evolve Blastoise.",
         type: "Water Type"
     },
     {
@@ -91,6 +115,12 @@ let pokemon = [
         type: "Bug Poison Type"
     },
     {
+        id: "#015",
+        pokemon: "Mega Beedrill",
+        description: "Use Beedrillite to mega evolve Beedrill.",
+        type: "Bug Poison Type"
+    },
+    {
         id: "#016",
         pokemon: "Pidgey",
         description: "Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.",
@@ -106,6 +136,12 @@ let pokemon = [
         id: "#018",
         pokemon: "Pidgeot",
         description: "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.",
+        type: "Normal Flying Type"
+    },
+    {
+        id: "#018",
+        pokemon: "Mega Pidgeot",
+        description: "Use Pidgeotite to mega evolve Pidgeot.",
         type: "Normal Flying Type"
     },
     {
