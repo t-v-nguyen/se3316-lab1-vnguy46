@@ -16,22 +16,23 @@ body {
   -webkit-text-stroke-color: #3d7dca;
   margin-top: 0;
 }
-.header .search-container{
-    display: flex;
+.header .search-container {
+  display: flex;
 }
-.header .search-container .name{
-    float: left;
-    width: 50%;
+.header .search-container .name {
+  float: left;
+  width: 50%;
 }
 
-.header .search-container .index{
-    float: right;
-    width: 50%;
+.header .search-container .index {
+  float: right;
+  width: 50%;
 }
-.header .search-container input{
-    margin-bottom: 20px;
-    margin-left: 20%;
-    
+.header .search-container input {
+  margin-bottom: 20px;
+  margin-left: 20%;
+  border-radius: 10px;
+  padding: 5px;
 }
 .pokedex ul {
   display: flex;
