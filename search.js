@@ -164,8 +164,7 @@ function printMatches(matches){
     for(i=0;i<matches.length;i++){ // a loop that runs through all the matches and concats them all into one variable to be outputted
         output += matches[i].id +" "+ matches[i].pokemon +" "+ matches[i].description +" "+ matches[i].type + "\n" 
     }
-    if (matches.length > 0) alert(output); // prints the matches
-    else alert("No Matches Found"); // alerts user that no matches has been found
+    //output here
 }
 
 // function that runs when user searches for pokemon name
