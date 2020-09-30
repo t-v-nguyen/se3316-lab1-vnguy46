@@ -157,6 +157,10 @@ let pokemon = [
         type: "Normal Type"
     }
 ]
+var userNameInput = document.getElementById("nameInput");
+var userIndexInput = document.getElementById("indexInput");
+userNameInput.addEventListener("keypress", searchName);
+userIndexInput.addEventListener("keypress", searchIndex);
 
 // A function that prints all the matches 
 function printMatches(matches){
@@ -168,12 +172,12 @@ function printMatches(matches){
 }
 
 // function that runs when user searches for pokemon name
-function searchName(form){ // takes in the form as a parameter, to be used to grab values from search box
+function searchName(){ // takes in the form as a parameter, to be used to grab values from search box
     let matches = []; // declares an empty array
     //validates user input by checking it against a regex, and checks if the length is between 0-20
-    if(form.nameInput.value.match(/^[a-zA-z]+$/) && form.nameInput.value.length <= 20 && form.nameInput.value.length > 0){
+    if(userNameInput.value.match(/^[a-zA-z]+$/) && userNameInput.value.length <= 20 && userNameInput.value.length > 0){
         for(i=0;i<pokemon.length;i++){
-            if(pokemon[i].pokemon.toLowerCase().includes(form.nameInput.value.toLowerCase())){ // uses the include() function to check if the pokemon name contains what the user search
+            if(pokemon[i].pokemon.toLowerCase().includes(userNameInput.nameInput.value.toLowerCase())){ // uses the include() function to check if the pokemon name contains what the user search
                 matches.push(pokemon[i]);
                 if(matches.length >= 5) break; // if there are 5 matches, break out of the for loop
             }
@@ -186,15 +190,15 @@ function searchName(form){ // takes in the form as a parameter, to be used to gr
 }
 
 // function that runs when user searches based off of index
-function searchIndex(form){ // takes in the form as a parameter, to be used to grab values from search box
+function searchIndex(){ // takes in the form as a parameter, to be used to grab values from search box
     let matches = [] // declares an empty array
     // validates user input by checking if the number is actually a number, and ensures that the number is between 1-20
-    if(isNaN(form.indexInput.value) || form.indexInput.value > 20 || form.indexInput.value < 1){
+    if(isNaN(userIndexInput.value) || userIndexInput.value > 20 || userIndexInput.value < 1){
         alert("Please input a NUMBER between 1-20");
     }
     else{
         for(i=0;i<pokemon.length;i++){
-            if(pokemon[i].id.includes(form.indexInput.value)){ // if the pokemon ID matches with the user input
+            if(pokemon[i].id.includes(userIndexInput.value)){ // if the pokemon ID matches with the user input
                 matches.push(pokemon[i]); // add it to the matches array
                 if(matches.length >= 5) break;
             }
