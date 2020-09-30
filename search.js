@@ -159,8 +159,8 @@ let pokemon = [
 ]
 var userNameInput = document.getElementById("nameInput");
 var userIndexInput = document.getElementById("indexInput");
-userNameInput.addEventListener("keypress", searchName);
-userIndexInput.addEventListener("keypress", searchIndex);
+userNameInput.addEventListener("keyup", searchName);
+userIndexInput.addEventListener("keyup", searchIndex);
 
 // A function that prints all the matches 
 function printMatches(matches){
@@ -177,7 +177,7 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
     //validates user input by checking it against a regex, and checks if the length is between 0-20
     if(userNameInput.value.match(/^[a-zA-z]+$/) && userNameInput.value.length <= 20 && userNameInput.value.length > 0){
         for(i=0;i<pokemon.length;i++){
-            if(pokemon[i].pokemon.toLowerCase().includes(userNameInput.nameInput.value.toLowerCase())){ // uses the include() function to check if the pokemon name contains what the user search
+            if(pokemon[i].pokemon.toLowerCase().includes(userNameInput.value.toLowerCase())){ // uses the include() function to check if the pokemon name contains what the user search
                 matches.push(pokemon[i]);
                 if(matches.length >= 5) break; // if there are 5 matches, break out of the for loop
             }
@@ -185,7 +185,10 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
         printMatches(matches); // run the print matches function, passing the matches array as a parameter
     }
     else{
-        alert("Please input 1-20 alphabet characters"); // alerts user of incorrect input
+        if(userNameInput.value.length != 0){
+            userNameInput.value = "";
+            alert("Please input 1-20 alphabet characters"); // alerts user of incorrect input
+        }
     }
 }
 
@@ -194,7 +197,10 @@ function searchIndex(){ // takes in the form as a parameter, to be used to grab 
     let matches = [] // declares an empty array
     // validates user input by checking if the number is actually a number, and ensures that the number is between 1-20
     if(isNaN(userIndexInput.value) || userIndexInput.value > 20 || userIndexInput.value < 1){
-        alert("Please input a NUMBER between 1-20");
+        if(userIndexInput.value != ""){
+            userIndexInput.value = "";
+            alert("Please input a NUMBER between 1-20");
+        }
     }
     else{
         for(i=0;i<pokemon.length;i++){
