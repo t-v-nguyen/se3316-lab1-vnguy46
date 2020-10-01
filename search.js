@@ -173,11 +173,17 @@ function createResults(){
     header.appendChild(headerText);
 
     var list = document.createElement("ul");
+    list.setAttribute("id","r-list");
 
     results.appendChild(header);
     results.appendChild(list);
     
     document.getElementById("header").appendChild(results);
+}
+
+function deleteResults(){
+    var results = document.getElementById("results");
+    results?.remove();
 }
 
 function printMatches(matches){
@@ -197,9 +203,13 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
         }
         printMatches(matches); // run the print matches function, passing the matches array as a parameter
     }
+    else if(userNameInput.value.length == 0){
+        deleteResults();
+    }
     else{
         if(userNameInput.value.length != 0){
             userNameInput.value = "";
+            deleteResults();
             alert("Please input 1-20 alphabet characters"); // alerts user of incorrect input
         }
     }
@@ -209,9 +219,13 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
 function searchIndex(){ // takes in the form as a parameter, to be used to grab values from search box
     let matches = [] // declares an empty array
     // validates user input by checking if the number is actually a number, and ensures that the number is between 1-20
-    if(isNaN(userIndexInput.value) || userIndexInput.value > 20 || userIndexInput.value < 1){
+    if(userIndexInput.value.length == 0){
+        deleteResults();
+    }
+    else if(isNaN(userIndexInput.value) || userIndexInput.value > 20 || userIndexInput.value < 1){
         if(userIndexInput.value != ""){
             userIndexInput.value = "";
+            deleteResults();
             alert("Please input a NUMBER between 1-20");
         }
     }
