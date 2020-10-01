@@ -197,7 +197,20 @@ function deleteResults(){
 }
 
 function printMatches(matches){
-    
+    if(!resultsExists){
+        createResults();
+    }
+    var results = document.getElementById("r-list");
+    clearResults();
+    var pokedexList = document.querySelectorAll("#pokemon-list li");
+    for(var i=0;i<matches.length;i++){
+        for(var j=0;j<document.querySelectorAll("#pokemon-list li").length;j++){
+            if(pokedexList[j].children[2].textContent == matches[i].pokemon){
+                results.appendChild(pokedexList[j]);
+            }
+        }
+    }
+
 }
 
 // function that runs when user searches for pokemon name
@@ -208,7 +221,6 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
         for(i=0;i<pokemon.length;i++){
             if(pokemon[i].pokemon.toLowerCase().includes(userNameInput.value.toLowerCase())){ // uses the include() function to check if the pokemon name contains what the user search
                 matches.push(pokemon[i]);
-                if(matches.length >= 5) break; // if there are 5 matches, break out of the for loop
             }
         }
         printMatches(matches); // run the print matches function, passing the matches array as a parameter
@@ -243,7 +255,6 @@ function searchIndex(){ // takes in the form as a parameter, to be used to grab 
         for(i=0;i<pokemon.length;i++){
             if(pokemon[i].id.includes(userIndexInput.value)){ // if the pokemon ID matches with the user input
                 matches.push(pokemon[i]); // add it to the matches array
-                if(matches.length >= 5) break;
             }
         }
         printMatches(matches);
