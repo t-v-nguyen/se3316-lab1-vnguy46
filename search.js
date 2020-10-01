@@ -157,56 +157,66 @@ let pokemon = [
         type: "Normal Type"
     }
 ]
+// variables
 var userNameInput = document.getElementById("nameInput");
 var userIndexInput = document.getElementById("indexInput");
 userNameInput.addEventListener("keyup", searchName);
 userIndexInput.addEventListener("keyup", searchIndex);
 var resultsExists = false;
 
-// A function that prints all the matches 
+// a function to create the results section, where the list items can be added
 function createResults(){
+    // creates the parent div
     var results = document.createElement("div");
     results.setAttribute("id", "results");
-    results.setAttribute("class", "pokedex");
+    results.setAttribute("class", "pokedex"); // uses the pokedex class to set styling
 
+    //creates the search results text at the top
     var header = document.createElement("h2");
     var headerText = document.createTextNode("Search Results:");
     header.appendChild(headerText);
 
+    // creates a ul list
     var list = document.createElement("ul");
     list.setAttribute("id","r-list");
 
+    // add the search results text and the list to the parent div
     results.appendChild(header);
     results.appendChild(list);
     
+    // add the results to the header parent div
     document.getElementById("header").appendChild(results);
     resultsExists = true;
 }
 
+// a function to clear the search results
 function clearResults(){
     var resultsList = document.getElementById("r-list");
-    while(resultsList.firstChild){
+    while(resultsList.firstChild){ // removes everything that is a child in the results list
         resultsList.firstChild.remove();
     }
 }
 
+// a function that deletes the whole results section
 function deleteResults(){
     var results = document.getElementById("results");
-    results?.remove();
+    results?.remove(); // uses optional chaining to not throw an error when it tries to remove the results section when it is not there
     resultsExists = false;
 }
 
+// A function that prints all the matches 
 function printMatches(matches){
-    if(!resultsExists){
+    if(!resultsExists){ // makes sure that a results section exists before adding list items
         createResults();
     }
-    var results = document.getElementById("r-list");
-    clearResults();
-    var pokedexList = document.querySelectorAll("#pokemon-list li");
+    var results = document.getElementById("r-list"); // finds the results list
+    clearResults(); // clears anything in the list before adding new search results
+    var pokedexList = document.querySelectorAll("#pokemon-list li"); // uses the main pokedex list to compare names with matches list
     var clone;
     for(var i=0;i<matches.length;i++){
         for(var j=0;j<document.querySelectorAll("#pokemon-list li").length;j++){
-            if(pokedexList[j].children[2].textContent == matches[i].pokemon){
+            if(pokedexList[j].children[2].textContent == matches[i].pokemon){ // compares the name of the matched pokemon with the pokemon in pokedex list
+                // if they match clone the li node, and add it to the results list
                 clone = pokedexList[j].cloneNode(true);
                 results.appendChild(clone);
             }
@@ -226,11 +236,11 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
         }
         printMatches(matches); // run the print matches function, passing the matches array as a parameter
     }
-    else if(userNameInput.value.length == 0){
+    else if(userNameInput.value.length == 0){ // checks if there is no value in search bar to remove the results section
         deleteResults();
     }
     else{
-        if(userNameInput.value.length != 0){
+        if(userNameInput.value.length != 0){ // ensures that the alert is not constantly being displayed when editing search bar
             userNameInput.value = "";
             deleteResults();
             alert("Please input 1-20 alphabet characters"); // alerts user of incorrect input
@@ -240,11 +250,11 @@ function searchName(){ // takes in the form as a parameter, to be used to grab v
 
 // function that runs when user searches based off of index
 function searchIndex(){ // takes in the form as a parameter, to be used to grab values from search box
-    let matches = [] // declares an empty array
-    // validates user input by checking if the number is actually a number, and ensures that the number is between 1-20
-    if(userIndexInput.value.length == 0){
+    let matches = []; // declares an empty array
+    if(userIndexInput.value.length == 0){ // checks if there is no value in search bar to remove the results section
         deleteResults();
     }
+    // validates user input by checking if the number is actually a number, and ensures that the number is between 1-20
     else if(isNaN(userIndexInput.value) || userIndexInput.value > 20 || userIndexInput.value < 1){
         if(userIndexInput.value != ""){
             userIndexInput.value = "";

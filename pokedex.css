@@ -32,6 +32,7 @@ body {
   margin-bottom: 20px;
   margin-left: 20%;
   border-radius: 10px;
+  align-self: center;
   padding: 5px;
 }
 .pokedex ul {
@@ -119,4 +120,8 @@ body {
   margin: 0px;
   color: black;
   text-align: center;
+}
+
+#r-list li img{
+  width: 80%;
 }
