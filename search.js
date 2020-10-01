@@ -203,14 +203,15 @@ function printMatches(matches){
     var results = document.getElementById("r-list");
     clearResults();
     var pokedexList = document.querySelectorAll("#pokemon-list li");
+    var clone;
     for(var i=0;i<matches.length;i++){
         for(var j=0;j<document.querySelectorAll("#pokemon-list li").length;j++){
             if(pokedexList[j].children[2].textContent == matches[i].pokemon){
-                results.appendChild(pokedexList[j]);
+                clone = pokedexList[j].cloneNode(true);
+                results.appendChild(clone);
             }
         }
     }
-
 }
 
 // function that runs when user searches for pokemon name
