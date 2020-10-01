@@ -3,12 +3,12 @@ body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   margin: 0;
 }
-.header {
+#header {
   width: 100%;
   background-color: #cc0000;
   display: inline-block;
 }
-.header h1 {
+#header h1 {
   text-align: center;
   color: #f4dc26;
   font-size: 4em;
@@ -16,19 +16,19 @@ body {
   -webkit-text-stroke-color: #3d7dca;
   margin-top: 0;
 }
-.header .search-container {
+#header .search-container {
   display: flex;
 }
-.header .search-container .name {
+#header .search-container .name {
   float: left;
   width: 50%;
 }
 
-.header .search-container .index {
+#header .search-container .index {
   float: right;
   width: 50%;
 }
-.header .search-container input {
+#header .search-container input {
   margin-bottom: 20px;
   margin-left: 20%;
   border-radius: 10px;
@@ -107,4 +107,16 @@ body {
 .footer p {
   font-size: 12px;
   margin: 0;
+}
+
+#results.pokedex{
+  background-color: #960000;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+}
+
+#results h2{
+  margin: 0px;
+  color: black;
+  text-align: center;
 }

@@ -163,12 +163,25 @@ userNameInput.addEventListener("keyup", searchName);
 userIndexInput.addEventListener("keyup", searchIndex);
 
 // A function that prints all the matches 
+function createResults(){
+    var results = document.createElement("div");
+    results.setAttribute("id", "results");
+    results.setAttribute("class", "pokedex");
+
+    var header = document.createElement("h2");
+    var headerText = document.createTextNode("Search Results:");
+    header.appendChild(headerText);
+
+    var list = document.createElement("ul");
+
+    results.appendChild(header);
+    results.appendChild(list);
+    
+    document.getElementById("header").appendChild(results);
+}
+
 function printMatches(matches){
-    let output = "";
-    for(i=0;i<matches.length;i++){ // a loop that runs through all the matches and concats them all into one variable to be outputted
-        output += matches[i].id +" "+ matches[i].pokemon +" "+ matches[i].description +" "+ matches[i].type + "\n" 
-    }
-    //output here
+
 }
 
 // function that runs when user searches for pokemon name
