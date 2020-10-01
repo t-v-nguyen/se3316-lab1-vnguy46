@@ -161,6 +161,7 @@ var userNameInput = document.getElementById("nameInput");
 var userIndexInput = document.getElementById("indexInput");
 userNameInput.addEventListener("keyup", searchName);
 userIndexInput.addEventListener("keyup", searchIndex);
+var resultsExists = false;
 
 // A function that prints all the matches 
 function createResults(){
@@ -179,15 +180,24 @@ function createResults(){
     results.appendChild(list);
     
     document.getElementById("header").appendChild(results);
+    resultsExists = true;
+}
+
+function clearResults(){
+    var resultsList = document.getElementById("r-list");
+    while(resultsList.firstChild){
+        resultsList.firstChild.remove();
+    }
 }
 
 function deleteResults(){
     var results = document.getElementById("results");
     results?.remove();
+    resultsExists = false;
 }
 
 function printMatches(matches){
-
+    
 }
 
 // function that runs when user searches for pokemon name
